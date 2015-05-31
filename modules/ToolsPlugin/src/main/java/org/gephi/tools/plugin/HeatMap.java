@@ -141,10 +141,14 @@ public class HeatMap implements Tool {
                     if (maxDistance > 0) {
                         for (Entry<NodeData, Double> entry : algorithm.getDistances().entrySet()) {
                             NodeData node = entry.getKey();
+                            double distance = entry.getValue();
+                            double paintDistance = heatMapPanel.getDistance();
                             if (!Double.isInfinite(entry.getValue())) {
+                                if (distance <= paintDistance) {
                                 float ratio = (float) (entry.getValue() / maxDistance);
                                 Color c = linearGradient.getValue(ratio);
                                 node.setColor(c.getRed() / 255f, c.getGreen() / 255f, c.getBlue() / 255f);
+                                }
                             } else if (!dontPaintUnreachable) {
                                 Color c = colors[colors.length - 1];
                                 node.setColor(c.getRed() / 255f, c.getGreen() / 255f, c.getBlue() / 255f);

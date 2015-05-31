@@ -133,6 +133,14 @@ public class HeatMapPanel extends javax.swing.JPanel {
             palettePanel.setVisible(false);
         }
     }
+    
+    public double getDistance() {
+        try {
+            return Double.parseDouble(distanceTextField.getText());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+    }
 
     public boolean isUsePalette() {
         return usePalette;
@@ -175,6 +183,8 @@ public class HeatMapPanel extends javax.swing.JPanel {
         labelGradient = new javax.swing.JLabel();
         palettePanel = new javax.swing.JPanel();
         labelPalette = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        distanceTextField = new javax.swing.JTextField();
 
         setPreferredSize(new java.awt.Dimension(654, 28));
 
@@ -201,6 +211,10 @@ public class HeatMapPanel extends javax.swing.JPanel {
         labelPalette.setPreferredSize(new java.awt.Dimension(45, 28));
         palettePanel.add(labelPalette);
 
+        jLabel1.setText(org.openide.util.NbBundle.getMessage(HeatMapPanel.class, "HeatMapPanel.jLabel1.text")); // NOI18N
+
+        distanceTextField.setText(org.openide.util.NbBundle.getMessage(HeatMapPanel.class, "HeatMapPanel.distanceTextField.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -209,27 +223,36 @@ public class HeatMapPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelMode)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(distanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelMode)
+                .addGap(69, 69, 69)
                 .addComponent(modeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(gradientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(palettePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(statusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(labelMode, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(modeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(modeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
+                .addComponent(distanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(gradientPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(palettePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField distanceTextField;
     private javax.swing.JPanel gradientPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelGradient;
     private javax.swing.JLabel labelMode;
     private javax.swing.JLabel labelPalette;
